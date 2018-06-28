@@ -31,14 +31,23 @@ namespace WebCrawler.Bootstrappers
                 .As<ITestCW>()
                 .AutoActivate();
 
-            builder
-                .RegisterType<TwitterCrawler>()
-                .As<ITwitterCrawler>()
-                .AutoActivate();
+            //builder
+            //    .RegisterType<TwitterCrawler>()
+            //    .As<ITwitterCrawler>()
+            //    .AutoActivate();
 
             builder
-                .RegisterType<TwitterSettings>()
-                .As<ITwitterSettings>();
+                .RegisterType<OpenWeatherMapCrawler>()
+                .As<IOpenWeatherMapCrawler>()
+                .AutoActivate();
+
+            //builder
+            //    .RegisterType<TwitterSettings>()
+            //    .As<ITwitterSettings>();
+
+            builder
+                .RegisterType<OpenWeatherMapSettings>()
+                .As<IOpenWeatherMapSettings>();
 
             _container = builder.Build();
 

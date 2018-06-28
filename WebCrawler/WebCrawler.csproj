@@ -53,6 +53,9 @@
     <Reference Include="Nito.Disposables, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7247f14397bf67b9, processorArchitecture=MSIL">
       <HintPath>..\packages\NitoAsyncEx.Context.StrongName.1.1.0\lib\net461\Nito.Disposables.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp, Version=106.3.1.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.3.1\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -81,6 +84,7 @@
     <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -119,9 +123,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrappers\Bootstrapper.cs" />
+    <Compile Include="Crawler\Interfaces\IOpenWeatherMapCrawler.cs" />
     <Compile Include="Crawler\Interfaces\ITwitterCrawler.cs" />
+    <Compile Include="Crawler\OpenWeatherMapCrawler.cs" />
     <Compile Include="Crawler\TwitterCrawler.cs" />
+    <Compile Include="Settings\Interfaces\IOpenWeatherMapSettings.cs" />
     <Compile Include="Settings\Interfaces\ITwitterSettings.cs" />
+    <Compile Include="Settings\OpenWeatherMapSettings.cs" />
     <Compile Include="Settings\TwitterSettings.cs" />
     <Compile Include="Test\Interfaces\ITestCW.cs" />
     <Compile Include="Test\TestCP.cs" />

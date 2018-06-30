@@ -124,18 +124,11 @@
   <ItemGroup>
     <Compile Include="Bootstrappers\Bootstrapper.cs" />
     <Compile Include="Crawler\Interfaces\IOpenWeatherMapCrawler.cs" />
-    <Compile Include="Crawler\Interfaces\ITwitterCrawler.cs" />
     <Compile Include="Crawler\OpenWeatherMapCrawler.cs" />
-    <Compile Include="Crawler\TwitterCrawler.cs" />
     <Compile Include="Models\Interfaces\IWeather.cs" />
     <Compile Include="Models\Weather.cs" />
     <Compile Include="Settings\Interfaces\IOpenWeatherMapSettings.cs" />
-    <Compile Include="Settings\Interfaces\ITwitterSettings.cs" />
     <Compile Include="Settings\OpenWeatherMapSettings.cs" />
-    <Compile Include="Settings\TwitterSettings.cs" />
-    <Compile Include="Test\Interfaces\ITestCW.cs" />
-    <Compile Include="Test\TestCP.cs" />
-    <Compile Include="Test\TestCW.cs" />
     <Compile Include="WebClawler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

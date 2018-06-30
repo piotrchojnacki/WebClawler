@@ -8,8 +8,6 @@ using WebCrawler.Crawler;
 using WebCrawler.Crawler.Interfaces;
 using WebCrawler.Settings;
 using WebCrawler.Settings.Interfaces;
-using WebCrawler.Test;
-using WebCrawler.Test.Interfaces;
 
 namespace WebCrawler.Bootstrappers
 {

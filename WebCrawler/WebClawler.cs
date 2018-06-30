@@ -12,7 +12,9 @@ namespace WebCrawler
         static void Main(string[] args)
         {
             var bootstrapper = new Bootstrapper();
-            bootstrapper.Start();            
+            bootstrapper.Start();
+
+            Console.ReadKey();
         }
     }
 }

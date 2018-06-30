@@ -36,3 +36,4 @@ C:\Users\Piotr\Desktop\repo\WebClawler\WebCrawler\obj\Debug\WebCrawler.csproj.Co
 C:\Users\Piotr\Desktop\repo\WebClawler\WebCrawler\obj\Debug\WebCrawler.csproj.CopyComplete
 C:\Users\Piotr\Desktop\repo\WebClawler\WebCrawler\obj\Debug\WebCrawler.exe
 C:\Users\Piotr\Desktop\repo\WebClawler\WebCrawler\obj\Debug\WebCrawler.pdb
+C:\Users\Piotr\Desktop\repo\WebClawler\WebCrawler\obj\Debug\WebCrawler.csprojAssemblyReference.cache

@@ -22,18 +22,13 @@ namespace WebCrawler.Bootstrappers
             var builder = new ContainerBuilder();
 
             builder
-                .RegisterType<TestCW>()
-                .As<ITestCW>()
+                .RegisterType<OpenWeatherMapCrawler>()
+                .As<IOpenWeatherMapCrawler>()
                 .AutoActivate();
 
-            //builder
-            //    .RegisterType<OpenWeatherMapCrawler>()
-            //    .As<IOpenWeatherMapCrawler>()
-            //    .AutoActivate();
-
-            //builder
-            //    .RegisterType<OpenWeatherMapSettings>()
-            //    .As<IOpenWeatherMapSettings>();
+            builder
+                .RegisterType<OpenWeatherMapSettings>()
+                .As<IOpenWeatherMapSettings>();
 
             _container = builder.Build();
 

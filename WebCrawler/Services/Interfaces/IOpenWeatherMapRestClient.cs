@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebCrawler.Crawler.Interfaces
+namespace WebCrawler.Services.Interfaces
 {
-    interface IOpenWeatherMapCrawler
+    interface IOpenWeatherMapRestClient
     {
-        void Work();
+        void GetWeather();
     }
 }

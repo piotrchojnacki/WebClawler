@@ -125,8 +125,10 @@
     <Compile Include="Bootstrappers\Bootstrapper.cs" />
     <Compile Include="Crawler\Interfaces\IOpenWeatherMapCrawler.cs" />
     <Compile Include="Crawler\OpenWeatherMapCrawler.cs" />
-    <Compile Include="Models\Interfaces\IWeather.cs" />
-    <Compile Include="Models\Weather.cs" />
+    <Compile Include="Models\Interfaces\IOpenWeatherMapModel.cs" />
+    <Compile Include="Models\OpenWeatherMapModel.cs" />
+    <Compile Include="Services\Interfaces\IOpenWeatherMapRestClient.cs" />
+    <Compile Include="Services\OpenWeatherMapRestClient.cs" />
     <Compile Include="Settings\Interfaces\IOpenWeatherMapSettings.cs" />
     <Compile Include="Settings\OpenWeatherMapSettings.cs" />
     <Compile Include="WebClawler.cs" />

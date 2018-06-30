@@ -6,6 +6,7 @@ using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebCrawler.Crawler.Interfaces;
+using WebCrawler.Services.Interfaces;
 using WebCrawler.Settings.Interfaces;
 
 namespace WebCrawler.Crawler
@@ -15,12 +16,15 @@ namespace WebCrawler.Crawler
         private readonly string _openWeatherMapCityID;
         private readonly string _openWeatherMapAPIKey;
         private readonly TimeSpan _openWeatherMapTimeSpan;
+        private readonly IOpenWeatherMapRestClient _openWeatherMapRestClient;
 
-        public OpenWeatherMapCrawler(IOpenWeatherMapSettings openWeatherMapSettings)
+        public OpenWeatherMapCrawler(IOpenWeatherMapSettings openWeatherMapSettings,
+            IOpenWeatherMapRestClient openWeatherMapRestClient)
         {
             _openWeatherMapCityID = openWeatherMapSettings.OpenWeatherMapCityID;
             _openWeatherMapAPIKey = openWeatherMapSettings.OpenWeatherMapAPIKey;
             _openWeatherMapTimeSpan = openWeatherMapSettings.OpenWeatherMapTimeSpan;
+            _openWeatherMapRestClient = openWeatherMapRestClient;
 
             Work();
         }
@@ -29,22 +33,7 @@ namespace WebCrawler.Crawler
         {
             Console.WriteLine("{0} {1} {2}", _openWeatherMapCityID, _openWeatherMapAPIKey, _openWeatherMapTimeSpan.ToString());
 
-            var tweets = Observable.Interval(_openWeatherMapTimeSpan).Subscribe(_ => { DoSth(); });
-        }
-
-        private void DoSth()
-        {
-            var client = new RestClient("http://api.openweathermap.org/data/2.5/");
-
-            var request = new RestRequest("weather?id={id}&appid={appid}", Method.GET);
-
-            request.AddUrlSegment("id", _openWeatherMapCityID);
-            request.AddUrlSegment("appid", _openWeatherMapAPIKey);
-
-            IRestResponse response = client.Execute(request);
-            var content = response.Content;
-            Console.WriteLine(content);
-            Console.WriteLine("^");
+            var obs = Observable.Interval(_openWeatherMapTimeSpan).Subscribe(_ => { _openWeatherMapRestClient.GetWeather(); });
         }
     }
 }

@@ -10,6 +10,10 @@ namespace WebCrawler.Settings
 {
     public class OpenWeatherMapSettings : IOpenWeatherMapSettings
     {
+        public string OpenWeatherMapCityID { get; set; }
+        public string OpenWeatherMapAPIKey { get; set; }
+        public TimeSpan OpenWeatherMapTimeSpan { get; set; }
+        public string OpenWeatherMapBaseUrl { get; set; }
         public OpenWeatherMapSettings()
         {
             OpenWeatherMapCityID = ConfigurationManager.AppSettings["openWeatherMapCityID"];
@@ -17,9 +21,8 @@ namespace WebCrawler.Settings
 
             var openWeatherMapTimeSpan = ConfigurationManager.AppSettings["openWeatherMapTimeSpan"];
             OpenWeatherMapTimeSpan = TimeSpan.Parse(openWeatherMapTimeSpan);
+
+            OpenWeatherMapBaseUrl = ConfigurationManager.AppSettings["openWeatherMapBaseUrl"];
         }
-        public string OpenWeatherMapCityID { get; set; }
-        public string OpenWeatherMapAPIKey { get; set; }
-        public TimeSpan OpenWeatherMapTimeSpan { get; set; }
     }
 }

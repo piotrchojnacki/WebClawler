@@ -11,5 +11,6 @@ namespace WebCrawler.Settings.Interfaces
         string OpenWeatherMapCityID { get; }
         string OpenWeatherMapAPIKey { get; }
         TimeSpan OpenWeatherMapTimeSpan { get; }
+        string OpenWeatherMapBaseUrl { get; }
     }
 }

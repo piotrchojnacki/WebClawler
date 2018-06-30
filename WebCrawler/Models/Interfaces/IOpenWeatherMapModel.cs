@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebCrawler.Models.Interfaces
 {
-    public interface IWeather
+    public interface IOpenWeatherMapModel
     {
         decimal Temp { get; }
         int Pressure { get; }

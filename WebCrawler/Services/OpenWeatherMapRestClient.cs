@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebCrawler.Models;
 using WebCrawler.Services.Interfaces;
 using WebCrawler.Settings.Interfaces;
 
@@ -27,6 +28,9 @@ namespace WebCrawler.Services
         {
             IRestResponse response = _client.Execute(_request);
             var content = response.Content;
+
+            //var model = new OpenWeatherMapModel(content);
+            
             Console.WriteLine(content);
             Console.WriteLine("^");
         }

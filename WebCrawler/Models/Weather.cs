@@ -7,7 +7,7 @@ using WebCrawler.Models.Interfaces;
 
 namespace WebCrawler.Models
 {
-    public class OpenWeatherMapModel : IOpenWeatherMapModel
+    public class Weather : IWeather
     {
         public decimal Temp { get; private set; }
         public int Pressure { get; private set; }

@@ -8,6 +8,7 @@ namespace WebCrawler.Models.Interfaces
 {
     public interface IWeather
     {
+        long Id { get; }
         decimal Temp { get; }
         int Pressure { get; }
         int Humidity { get; }

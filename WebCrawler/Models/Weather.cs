@@ -9,6 +9,7 @@ namespace WebCrawler.Models
 {
     public class Weather : IWeather
     {
+        public long Id { get; private set; }
         public decimal Temp { get; private set; }
         public int Pressure { get; private set; }
         public int Humidity { get; private set; }

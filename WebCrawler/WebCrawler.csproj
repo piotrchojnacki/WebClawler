@@ -135,6 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrappers\Bootstrapper.cs" />
+    <Compile Include="Contexts\WeatherContext.cs" />
     <Compile Include="Crawler\Interfaces\IOpenWeatherMapCrawler.cs" />
     <Compile Include="Crawler\OpenWeatherMapCrawler.cs" />
     <Compile Include="Models\Interfaces\IWeather.cs" />

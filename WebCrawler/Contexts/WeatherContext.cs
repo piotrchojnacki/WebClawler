@@ -9,7 +9,7 @@ using WebCrawler.Models;
 
 namespace WebCrawler.Contexts
 {
-    class WeatherContext : DbContext
+    public class WeatherContext : DbContext
     {
         #region Properties
         public DbSet<Weather> Weathers { get; set; }

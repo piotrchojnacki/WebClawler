@@ -20,5 +20,29 @@ namespace WebCrawler.Models
         public decimal WindDeg { get; private set; }
         public int CloudsAll { get; private set; }
         public long Dt { get; private set; }
+
+        public Weather(
+            decimal temp,
+            int pressure,
+            int humidity,
+            decimal tempMin,
+            decimal tempMax,
+            int visibility,
+            decimal windSpeed,
+            decimal windDeg,
+            int cloudsAll,
+            long dt)
+        {
+            Temp = temp;
+            Pressure = pressure;
+            Humidity = humidity;
+            TempMin = tempMin;
+            TempMax = tempMax;
+            Visibility = visibility;
+            WindSpeed = windSpeed;
+            WindDeg = windDeg;
+            CloudsAll = cloudsAll;
+            Dt = dt;
+        }
     }
 }

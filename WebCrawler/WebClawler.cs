@@ -6,6 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebCrawler.Bootstrappers;
+using WebCrawler.Contexts;
+using WebCrawler.Models;
+using WebCrawler.Repositories;
 
 namespace WebCrawler
 {
@@ -26,6 +29,14 @@ namespace WebCrawler
             connection.Open();
             Console.WriteLine("*");
             connection.Close();
+
+            var weatherContext = new WeatherContext(conn);
+
+            var weatherSet = new WeatherRepository(weatherContext);
+
+            var weather = new Weather(300, 1000, 100, 0, 400, 50, 20, 10, 30, 1111111);
+
+            weatherSet.Add(weather);
 
             Console.ReadKey();
         }

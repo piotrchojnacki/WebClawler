@@ -31,12 +31,14 @@ namespace WebCrawler
             connection.Close();
 
             var weatherContext = new WeatherContext(conn);
-
+            
             var weatherSet = new WeatherRepository(weatherContext);
 
             var weather = new Weather(300, 1000, 100, 0, 400, 50, 20, 10, 30, 1111111);
 
             weatherSet.Add(weather);
+            //weatherContext.Weathers.Add(weather);
+            weatherContext.SaveChanges();
 
             Console.ReadKey();
         }

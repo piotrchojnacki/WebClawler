@@ -24,15 +24,28 @@ namespace WebCrawler.Services
                 .AddUrlSegment("appid", openWeatherMapSettings.OpenWeatherMapAPIKey);
         }
 
-        public void GetWeather()
+        //public void GetWeather()
+        //{
+        //    IRestResponse response = _client.Execute(_request);
+        //    var content = response.Content;
+
+        //    ////var model = new OpenWeatherMapModel(content);
+            
+        //    Console.WriteLine(content);
+        //    Console.WriteLine("^");
+        //}
+
+        public string GetWeather()
         {
             IRestResponse response = _client.Execute(_request);
             var content = response.Content;
 
-            //var model = new OpenWeatherMapModel(content);
-            
+            ////var model = new OpenWeatherMapModel(content);
+
             Console.WriteLine(content);
             Console.WriteLine("^");
+
+            return content;
         }
     }
 }

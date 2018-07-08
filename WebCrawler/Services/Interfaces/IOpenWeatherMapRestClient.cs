@@ -8,6 +8,7 @@ namespace WebCrawler.Services.Interfaces
 {
     interface IOpenWeatherMapRestClient
     {
-        void GetWeather();
+        //void GetWeather();
+        string GetWeather();
     }
 }

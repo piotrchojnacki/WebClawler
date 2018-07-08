@@ -1,11 +1,16 @@
 ﻿using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebCrawler.Contexts;
 using WebCrawler.Crawler.Interfaces;
+using WebCrawler.Mapping;
+using WebCrawler.Models;
+using WebCrawler.Repositories;
 using WebCrawler.Services.Interfaces;
 using WebCrawler.Settings.Interfaces;
 
@@ -25,15 +30,26 @@ namespace WebCrawler.Crawler
             _openWeatherMapAPIKey = openWeatherMapSettings.OpenWeatherMapAPIKey;
             _openWeatherMapTimeSpan = openWeatherMapSettings.OpenWeatherMapTimeSpan;
             _openWeatherMapRestClient = openWeatherMapRestClient;
-
-            Work();
+            
+            //Work();
+            var obs = Observable.Interval(_openWeatherMapTimeSpan).Subscribe(_ => { Work(); });
         }
 
         public void Work()
         {
             Console.WriteLine("{0} {1} {2}", _openWeatherMapCityID, _openWeatherMapAPIKey, _openWeatherMapTimeSpan.ToString());
 
-            var obs = Observable.Interval(_openWeatherMapTimeSpan).Subscribe(_ => { _openWeatherMapRestClient.GetWeather(); });
+            //var obs = Observable.Interval(_openWeatherMapTimeSpan).Subscribe(_ => { _openWeatherMapRestClient.GetWeather(); });
+            string weatherString = _openWeatherMapRestClient.GetWeather();
+
+            Weather weather = new WeatherMapper(weatherString).MapToWeather();
+
+            string conn = ConfigurationManager.AppSettings["ConnectionString"];
+            var weatherContext = new WeatherContext(conn);
+            var weatherSet = new WeatherRepository(weatherContext);
+
+            weatherSet.Add(weather);
+            weatherContext.SaveChanges();
         }
     }
 }

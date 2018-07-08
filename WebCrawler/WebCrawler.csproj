@@ -148,6 +148,7 @@
     <Compile Include="Contexts\WeatherContext.cs" />
     <Compile Include="Crawler\Interfaces\IOpenWeatherMapCrawler.cs" />
     <Compile Include="Crawler\OpenWeatherMapCrawler.cs" />
+    <Compile Include="Mapping\WeatherMapper.cs" />
     <Compile Include="Mapping\WeathersConfiguration.cs" />
     <Compile Include="Models\Interfaces\IWeather.cs" />
     <Compile Include="Models\Weather.cs" />

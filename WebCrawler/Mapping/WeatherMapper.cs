@@ -10,13 +10,8 @@ namespace WebCrawler.Mapping
 {
     public class WeatherMapper
     {
-        private readonly string _weatherString;
-
-        public WeatherMapper(string weatherString)
-        {
-            _weatherString = weatherString;
-        }
-        public Weather MapToWeather()
+        public WeatherMapper() {}
+        public Weather MapToWeather(string weatherString)
         {
             decimal temp;
             int pressure;
@@ -29,16 +24,16 @@ namespace WebCrawler.Mapping
             int cloudsAll;
             long dt;
 
-            Decimal.TryParse(JObject.Parse(_weatherString)["main"]["temp"].ToString(), out temp);
-            Int32.TryParse(JObject.Parse(_weatherString)["main"]["pressure"].ToString(), out pressure);
-            Int32.TryParse(JObject.Parse(_weatherString)["main"]["humidity"].ToString(), out humidity);
-            Decimal.TryParse(JObject.Parse(_weatherString)["main"]["temp_min"].ToString(), out tempMin);
-            Decimal.TryParse(JObject.Parse(_weatherString)["main"]["temp_max"].ToString(), out tempMax);
-            Int32.TryParse(JObject.Parse(_weatherString)["visibility"].ToString(), out visibility);
-            Decimal.TryParse(JObject.Parse(_weatherString)["wind"]["speed"].ToString(), out windSpeed);
-            Decimal.TryParse(JObject.Parse(_weatherString)["wind"]["deg"].ToString(), out windDeg);
-            Int32.TryParse(JObject.Parse(_weatherString)["clouds"]["all"].ToString(), out cloudsAll);
-            Int64.TryParse(JObject.Parse(_weatherString)["dt"].ToString(), out dt);
+            Decimal.TryParse(JObject.Parse(weatherString)["main"]["temp"].ToString(), out temp);
+            Int32.TryParse(JObject.Parse(weatherString)["main"]["pressure"].ToString(), out pressure);
+            Int32.TryParse(JObject.Parse(weatherString)["main"]["humidity"].ToString(), out humidity);
+            Decimal.TryParse(JObject.Parse(weatherString)["main"]["temp_min"].ToString(), out tempMin);
+            Decimal.TryParse(JObject.Parse(weatherString)["main"]["temp_max"].ToString(), out tempMax);
+            Int32.TryParse(JObject.Parse(weatherString)["visibility"].ToString(), out visibility);
+            Decimal.TryParse(JObject.Parse(weatherString)["wind"]["speed"].ToString(), out windSpeed);
+            Decimal.TryParse(JObject.Parse(weatherString)["wind"]["deg"].ToString(), out windDeg);
+            Int32.TryParse(JObject.Parse(weatherString)["clouds"]["all"].ToString(), out cloudsAll);
+            Int64.TryParse(JObject.Parse(weatherString)["dt"].ToString(), out dt);
 
             return new Weather(
                 temp,

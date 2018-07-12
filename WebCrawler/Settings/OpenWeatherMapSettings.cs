@@ -14,6 +14,7 @@ namespace WebCrawler.Settings
         public string OpenWeatherMapAPIKey { get; set; }
         public TimeSpan OpenWeatherMapTimeSpan { get; set; }
         public string OpenWeatherMapBaseUrl { get; set; }
+        public string ConnectionString { get; set; }
         public OpenWeatherMapSettings()
         {
             OpenWeatherMapCityID = ConfigurationManager.AppSettings["openWeatherMapCityID"];
@@ -23,6 +24,8 @@ namespace WebCrawler.Settings
             OpenWeatherMapTimeSpan = TimeSpan.Parse(openWeatherMapTimeSpan);
 
             OpenWeatherMapBaseUrl = ConfigurationManager.AppSettings["openWeatherMapBaseUrl"];
+
+            ConnectionString = ConfigurationManager.AppSettings["ConnectionString"];
         }
     }
 }

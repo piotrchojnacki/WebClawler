@@ -31,7 +31,6 @@ namespace WebCrawler.Crawler
             _openWeatherMapTimeSpan = openWeatherMapSettings.OpenWeatherMapTimeSpan;
             _openWeatherMapRestClient = openWeatherMapRestClient;
             
-            //Work();
             var obs = Observable.Interval(_openWeatherMapTimeSpan).Subscribe(_ => { Work(); });
         }
 
@@ -39,7 +38,6 @@ namespace WebCrawler.Crawler
         {
             Console.WriteLine("{0} {1} {2}", _openWeatherMapCityID, _openWeatherMapAPIKey, _openWeatherMapTimeSpan.ToString());
 
-            //var obs = Observable.Interval(_openWeatherMapTimeSpan).Subscribe(_ => { _openWeatherMapRestClient.GetWeather(); });
             string weatherString = _openWeatherMapRestClient.GetWeather();
 
             Weather weather = new WeatherMapper(weatherString).MapToWeather();

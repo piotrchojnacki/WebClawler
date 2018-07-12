@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Autofac;
 using WebCrawler.Crawler;
 using WebCrawler.Crawler.Interfaces;
+using WebCrawler.Mapping;
+using WebCrawler.Mapping.Interfaces;
 using WebCrawler.Services;
 using WebCrawler.Services.Interfaces;
 using WebCrawler.Settings;
@@ -34,6 +36,10 @@ namespace WebCrawler.Bootstrappers
                 .RegisterType<OpenWeatherMapRestClient>()
                 .As<IOpenWeatherMapRestClient>()
                 .SingleInstance();
+
+            builder
+                .RegisterType<WeatherMapper>()
+                .As<IWeatherMapper>();
 
             _container = builder.Build();
 

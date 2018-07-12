@@ -145,6 +145,7 @@
     <Compile Include="AbstractionLayer\AEntityConfiguration.cs" />
     <Compile Include="AbstractionLayer\Interfaces\IEntityTypeConfiguration.cs" />
     <Compile Include="Bootstrappers\Bootstrapper.cs" />
+    <Compile Include="Contexts\Interfaces\IWeatherContext.cs" />
     <Compile Include="Contexts\WeatherContext.cs" />
     <Compile Include="Crawler\Interfaces\IOpenWeatherMapCrawler.cs" />
     <Compile Include="Crawler\OpenWeatherMapCrawler.cs" />

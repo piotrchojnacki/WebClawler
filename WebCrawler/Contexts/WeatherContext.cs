@@ -5,11 +5,12 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebCrawler.Contexts.Interfaces;
 using WebCrawler.Models;
 
 namespace WebCrawler.Contexts
 {
-    public class WeatherContext : DbContext
+    public class WeatherContext : DbContext, IWeatherContext
     {
         #region Properties
         public DbSet<Weather> Weathers { get; set; }

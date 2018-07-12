@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using WebCrawler.Contexts;
 using WebCrawler.Crawler.Interfaces;
 using WebCrawler.Mapping;
+using WebCrawler.Mapping.Interfaces;
 using WebCrawler.Models;
 using WebCrawler.Models.Interfaces;
 using WebCrawler.Repositories;
@@ -23,16 +24,18 @@ namespace WebCrawler.Crawler
         private readonly string _openWeatherMapAPIKey;
         private readonly TimeSpan _openWeatherMapTimeSpan;
         private readonly IOpenWeatherMapRestClient _openWeatherMapRestClient;
+        private readonly IWeatherMapper _weatherMapper;
 
         public OpenWeatherMapCrawler(
             IOpenWeatherMapSettings openWeatherMapSettings,
-            IOpenWeatherMapRestClient openWeatherMapRestClient
-            /*IWeatherMapper weatherMapper*/)
+            IOpenWeatherMapRestClient openWeatherMapRestClient,
+            IWeatherMapper weatherMapper)
         {
             _openWeatherMapCityID = openWeatherMapSettings.OpenWeatherMapCityID;
             _openWeatherMapAPIKey = openWeatherMapSettings.OpenWeatherMapAPIKey;
             _openWeatherMapTimeSpan = openWeatherMapSettings.OpenWeatherMapTimeSpan;
             _openWeatherMapRestClient = openWeatherMapRestClient;
+            _weatherMapper = weatherMapper;
             
             var obs = Observable.Interval(_openWeatherMapTimeSpan).Subscribe(_ => { Work(); });
         }
@@ -43,7 +46,7 @@ namespace WebCrawler.Crawler
 
             string weatherString = _openWeatherMapRestClient.GetWeather();
 
-            Weather weather = new WeatherMapper().MapToWeather(weatherString);
+            Weather weather = _weatherMapper.MapToWeather(weatherString);
 
             string conn = ConfigurationManager.AppSettings["ConnectionString"];
             var weatherContext = new WeatherContext(conn);

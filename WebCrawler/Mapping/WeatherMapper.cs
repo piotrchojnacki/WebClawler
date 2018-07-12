@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebCrawler.Mapping.Interfaces;
 using WebCrawler.Models;
 
 namespace WebCrawler.Mapping
 {
-    public class WeatherMapper
+    public class WeatherMapper : IWeatherMapper
     {
         public WeatherMapper() {}
         public Weather MapToWeather(string weatherString)

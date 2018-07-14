@@ -5,11 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using WebCrawler.Models;
 
-namespace WebCrawler.Crawler.Interfaces
+namespace WebCrawler.Saver.Interfaces
 {
-    public interface IOpenWeatherMapCrawler
+    public interface ISaver
     {
-        IObservable<Weather> WeatherSource { get; }
-        //void Work();
+        void Save(Weather weather);
     }
 }

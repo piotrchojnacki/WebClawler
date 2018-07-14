@@ -7,6 +7,7 @@ using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebCrawler.Contexts;
+using WebCrawler.Contexts.Interfaces;
 using WebCrawler.Crawler.Interfaces;
 using WebCrawler.Mapping;
 using WebCrawler.Mapping.Interfaces;
@@ -25,22 +26,31 @@ namespace WebCrawler.Crawler
         private readonly TimeSpan _openWeatherMapTimeSpan;
         private readonly IOpenWeatherMapRestClient _openWeatherMapRestClient;
         private readonly IWeatherMapper _weatherMapper;
+        private readonly WeatherContext _weatherContext;
+        public IObservable<Weather> WeatherSource { get; private set; }
+
 
         public OpenWeatherMapCrawler(
             IOpenWeatherMapSettings openWeatherMapSettings,
             IOpenWeatherMapRestClient openWeatherMapRestClient,
-            IWeatherMapper weatherMapper)
+            IWeatherMapper weatherMapper,
+            WeatherContext weatherContext)
         {
             _openWeatherMapCityID = openWeatherMapSettings.OpenWeatherMapCityID;
             _openWeatherMapAPIKey = openWeatherMapSettings.OpenWeatherMapAPIKey;
             _openWeatherMapTimeSpan = openWeatherMapSettings.OpenWeatherMapTimeSpan;
             _openWeatherMapRestClient = openWeatherMapRestClient;
             _weatherMapper = weatherMapper;
-            
-            var obs = Observable.Interval(_openWeatherMapTimeSpan).Subscribe(_ => { Work(); });
+            _weatherContext = weatherContext;
+
+
+            WeatherSource = Observable.Interval(_openWeatherMapTimeSpan)
+                .Select(x => Work());
+      
         }
 
-        public void Work()
+
+        public void Work(bool sth)
         {
             Console.WriteLine("{0} {1} {2}", _openWeatherMapCityID, _openWeatherMapAPIKey, _openWeatherMapTimeSpan.ToString());
 
@@ -48,12 +58,18 @@ namespace WebCrawler.Crawler
 
             Weather weather = _weatherMapper.MapToWeather(weatherString);
 
-            string conn = ConfigurationManager.AppSettings["ConnectionString"];
-            var weatherContext = new WeatherContext(conn);
-            var weatherSet = new WeatherRepository(weatherContext);
+            //string conn = ConfigurationManager.AppSettings["ConnectionString"];
+            //var weatherContext = new WeatherContext(conn);
+            var weatherSet = new WeatherRepository(_weatherContext);
 
             weatherSet.Add(weather);
-            weatherContext.SaveChanges();
+            _weatherContext.SaveChanges();
+        }
+
+        public Weather Work()
+        {
+          var weatherString =  _openWeatherMapRestClient.GetWeather();
+          return _weatherMapper.MapToWeather(weatherString);
         }
     }
 }

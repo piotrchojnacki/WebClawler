@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac;
+using WebCrawler.Contexts;
+using WebCrawler.Contexts.Interfaces;
 using WebCrawler.Crawler;
 using WebCrawler.Crawler.Interfaces;
 using WebCrawler.Mapping;
@@ -40,6 +42,10 @@ namespace WebCrawler.Bootstrappers
             builder
                 .RegisterType<WeatherMapper>()
                 .As<IWeatherMapper>();
+
+            builder
+                .Register<WeatherContext>(x => new WeatherContext(x.Resolve<IOpenWeatherMapSettings>().ConnectionString))
+                .AsSelf();
 
             _container = builder.Build();
 

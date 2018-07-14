@@ -145,6 +145,8 @@
     <Compile Include="AbstractionLayer\AEntityConfiguration.cs" />
     <Compile Include="AbstractionLayer\Interfaces\IEntityTypeConfiguration.cs" />
     <Compile Include="Bootstrappers\Bootstrapper.cs" />
+    <Compile Include="Connector\Connector.cs" />
+    <Compile Include="Connector\Interfaces\IConnector.cs" />
     <Compile Include="Contexts\Interfaces\IWeatherContext.cs" />
     <Compile Include="Contexts\WeatherContext.cs" />
     <Compile Include="Crawler\Interfaces\IOpenWeatherMapCrawler.cs" />
@@ -158,6 +160,8 @@
     <Compile Include="Repositories\Interfaces\IWeatherRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\WeatherRepository.cs" />
+    <Compile Include="Saver\Interfaces\ISaver.cs" />
+    <Compile Include="Saver\Saver.cs" />
     <Compile Include="Services\Interfaces\IOpenWeatherMapRestClient.cs" />
     <Compile Include="Services\OpenWeatherMapRestClient.cs" />
     <Compile Include="Settings\Interfaces\IOpenWeatherMapSettings.cs" />

@@ -7,7 +7,8 @@ using WebCrawler.Models;
 
 namespace WebCrawler.Repositories.Interfaces
 {
-    public interface IWeatherRepository : IRepository<Weather>
+    public interface IWeatherRepository 
     {
+        void AddWeather(Weather weatherToAdd);
     }
 }

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebCrawler.Services.Interfaces
+namespace WebCrawler.Connectors.Interfaces
 {
-    interface IOpenWeatherMapRestClient
+    public interface IConnector
     {
-        string GetWeather();
     }
 }

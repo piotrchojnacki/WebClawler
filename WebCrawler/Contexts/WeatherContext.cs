@@ -22,6 +22,7 @@ namespace WebCrawler.Contexts
         {
             Database.SetInitializer<WeatherContext>(null);
         }
+
         #endregion
     }
 }

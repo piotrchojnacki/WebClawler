@@ -29,8 +29,7 @@ namespace WebCrawler.Services
             IRestResponse response = _client.Execute(_request);
             var content = response.Content;
 
-            Console.WriteLine(content);
-            Console.WriteLine("^");
+            Console.WriteLine(content + Environment.NewLine);
 
             return content;
         }

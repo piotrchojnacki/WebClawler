@@ -22,7 +22,7 @@ namespace WebCrawler.Repositories
         {
             _context.Weathers.Add(weatherToAdd);
             _context.SaveChanges();
-            return true;
+            //return true;
         }
     }
 }

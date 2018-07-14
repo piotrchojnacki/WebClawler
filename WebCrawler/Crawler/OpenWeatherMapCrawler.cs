@@ -50,21 +50,21 @@ namespace WebCrawler.Crawler
         }
 
 
-        public void Work(bool sth)
-        {
-            Console.WriteLine("{0} {1} {2}", _openWeatherMapCityID, _openWeatherMapAPIKey, _openWeatherMapTimeSpan.ToString());
+        //public void Work(bool sth)
+        //{
+        //    Console.WriteLine("{0} {1} {2}", _openWeatherMapCityID, _openWeatherMapAPIKey, _openWeatherMapTimeSpan.ToString());
 
-            string weatherString = _openWeatherMapRestClient.GetWeather();
+        //    string weatherString = _openWeatherMapRestClient.GetWeather();
 
-            Weather weather = _weatherMapper.MapToWeather(weatherString);
+        //    Weather weather = _weatherMapper.MapToWeather(weatherString);
 
-            //string conn = ConfigurationManager.AppSettings["ConnectionString"];
-            //var weatherContext = new WeatherContext(conn);
-            var weatherSet = new WeatherRepository(_weatherContext);
+        //    //string conn = ConfigurationManager.AppSettings["ConnectionString"];
+        //    //var weatherContext = new WeatherContext(conn);
+        //    var weatherSet = new WeatherRepository(_weatherContext);
 
-            weatherSet.Add(weather);
-            _weatherContext.SaveChanges();
-        }
+        //    weatherSet.Add(weather);
+        //    _weatherContext.SaveChanges();
+        //}
 
         public Weather Work()
         {

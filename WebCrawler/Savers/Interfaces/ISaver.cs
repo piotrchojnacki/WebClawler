@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebCrawler.Models;
 
-namespace WebCrawler.Connector.Interfaces
+namespace WebCrawler.Savers.Interfaces
 {
-    public interface IConnector
+    public interface ISaver
     {
+        void Save(Weather weather);
     }
 }

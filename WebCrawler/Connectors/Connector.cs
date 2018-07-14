@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebCrawler.Connector.Interfaces;
+using WebCrawler.Connectors.Interfaces;
 using WebCrawler.Crawler.Interfaces;
-using WebCrawler.Saver.Interfaces;
+using WebCrawler.Savers.Interfaces;
 
-namespace WebCrawler.Connector
+namespace WebCrawler.Connectors
 {
     public class Connector : IConnector
     {

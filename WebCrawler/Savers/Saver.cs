@@ -7,9 +7,9 @@ using WebCrawler.Contexts.Interfaces;
 using WebCrawler.Models;
 using WebCrawler.Repositories;
 using WebCrawler.Repositories.Interfaces;
-using WebCrawler.Saver.Interfaces;
+using WebCrawler.Savers.Interfaces;
 
-namespace WebCrawler.Saver
+namespace WebCrawlers.Saver
 {
     public class Saver : ISaver
     {
@@ -20,6 +20,7 @@ namespace WebCrawler.Saver
         }
         public void Save(Weather weather)
         {
+            Console.WriteLine("Saved: " + weather.Temp);
             _weatherRepository.AddWeather(weather);
         }
     }

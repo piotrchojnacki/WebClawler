@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using log4net;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace WebCrawler.Services
     {
         private RestClient _client;
         private RestRequest _request;
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public OpenWeatherMapRestClient(IOpenWeatherMapSettings openWeatherMapSettings)
         {
             _client = new RestClient(openWeatherMapSettings.OpenWeatherMapBaseUrl);
@@ -29,7 +32,7 @@ namespace WebCrawler.Services
             IRestResponse response = _client.Execute(_request);
             var content = response.Content;
 
-            Console.WriteLine(content + Environment.NewLine);
+            log.InfoFormat("Getted weather from website.");
 
             return content;
         }

@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCrawler", "WebCrawler\WebCrawler.csproj", "{AC862486-AAF5-4EDD-BA65-D9073D9448CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCrawlerTests", "WebCrawlerTests\WebCrawlerTests.csproj", "{9458E95C-A113-4CB2-A408-2508B07977B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AC862486-AAF5-4EDD-BA65-D9073D9448CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC862486-AAF5-4EDD-BA65-D9073D9448CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC862486-AAF5-4EDD-BA65-D9073D9448CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9458E95C-A113-4CB2-A408-2508B07977B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9458E95C-A113-4CB2-A408-2508B07977B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9458E95C-A113-4CB2-A408-2508B07977B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9458E95C-A113-4CB2-A408-2508B07977B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

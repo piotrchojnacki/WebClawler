@@ -19,7 +19,7 @@ using WebCrawler.Settings.Interfaces;
 
 namespace WebCrawler.Crawler
 {
-    class OpenWeatherMapCrawler : IOpenWeatherMapCrawler
+    public class OpenWeatherMapCrawler : IOpenWeatherMapCrawler
     {
         private readonly string _openWeatherMapCityID;
         private readonly string _openWeatherMapAPIKey;

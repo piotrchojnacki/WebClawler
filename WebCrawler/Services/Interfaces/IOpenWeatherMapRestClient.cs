@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebCrawler.Services.Interfaces
 {
-    interface IOpenWeatherMapRestClient
+    public interface IOpenWeatherMapRestClient
     {
         string GetWeather();
     }
